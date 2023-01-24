@@ -35,16 +35,12 @@ function Contact(firstName, lastName, phoneNumber) {
   this.lastName = lastName;
   this.phoneNumber = phoneNumber;
 
-    differentAddresses:
-    {
-    this.email = email,
-    this.home = home,
-    this.work = work      
-    }
-
-  
-
-  
+    // differentAddresses:
+    // {
+    // this.email = email,
+    // this.home = home,
+    // this.work = work      
+    // }
 }
 
 Contact.prototype.fullName = function() {
@@ -87,6 +83,7 @@ function displayContactDetails(event) {
   document.querySelector(".first-name").innerText = contact.firstName;
   document.querySelector(".last-name").innerText = contact.lastName;
   document.querySelector(".phone-number").innerText = contact.phoneNumber;
+  document.querySelector("button.delete").setAttribute("id", contact.id);
   document.querySelector("div#contact-details").removeAttribute("class");
 }
 
@@ -107,4 +104,7 @@ window.addEventListener("load", function (){
   
   // call this function as soon as our webpage has loaded all resources:
   document.querySelector("div#contacts").addEventListener("click", displayContactDetails);
+
+    // The line below this one is new!
+  document.querySelector("button.delete").addEventListener("click", handleDelete);
 });
